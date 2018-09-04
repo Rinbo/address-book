@@ -17,11 +17,15 @@ Then("and I should see {string}", async function(content) {
 });
 
 When('I click {string}', async function(string) {
-  return await this.clickOnAddContactBtn()
+  return await this.clickOnButton(string)
 })
 
 Then('I fill in {string} with {string}', async function(field, content) {
   return await this.fillFormField(field.toLowerCase(), content)
+})
+
+Then('and I click {string}', async function(string) {
+  return await this.clickOnButton(string)
 })
 
 Then('I should have {int} contact in my address book', async function(contactCount) {
