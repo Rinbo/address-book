@@ -1,4 +1,3 @@
-//console.log("Hello August 2018 Cohort!");
 document.addEventListener('DOMContentLoaded', () => {
     const addContactForm = document.querySelector('.new-contact-form')
     addContactForm.addEventListener('submit', event => {

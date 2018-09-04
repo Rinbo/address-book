@@ -8,14 +8,13 @@ class AddressBookWorld {
     constructor() {}
 
     async openHomePage() {
-        this.browser = await puppeteer.launch({ executablePath: '/usr/bin/chromium-browser'});
+        this.browser = await puppeteer.launch();
         this.page = await this.browser.newPage();
         await this.page.goto(HOME_PAGE);
     }
     async closeHomePage() {
         await this.browser.close()
     }
-
     async pageHasTextContent(expectedContent) {
         const pageContent = await this.page.content()
         const actualContent = pageContent.match(expectedContent)[0]
@@ -24,9 +23,8 @@ class AddressBookWorld {
 
     async clickOnAddContactBtn() {
         const btnSelector = '.add-contact'
-        await this.page.evaluate((btnSelector) => {
-            document.querySelector(btnSelector).click();
-            }, btnSelector);
+        await this.page.waitForSelector(btnSelector)
+        await this.page.click(btnSelector)
     }
 
     async fillFormField(field, content) {
@@ -35,7 +33,6 @@ class AddressBookWorld {
         this.inputElement = await this.page.$(inputSelector)
         await this.inputElement.type(content)
             
-        
     }
     btnSelectorFromName(btnName) {
         switch (btnName) {
