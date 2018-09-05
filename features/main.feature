@@ -19,4 +19,4 @@ Feature: Create contacts
     And I click "Save contact"
     Then I should have 1 contact in my address book
     And I should see "John Doe"
-    And I should not see "You have no contacts in your address book"
+    And I should not see "You have no contacts in your address book dumbass!!"
