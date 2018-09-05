@@ -65,6 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         contacts.push(contact)
         storage.setItem('contacts', JSON.stringify(contacts))
         renderContacts()
-        addContactForr.reset()
+        addContactForm.reset()
     })
 })
