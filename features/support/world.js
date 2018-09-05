@@ -24,7 +24,7 @@ class AddressBookWorld {
     async clickOnButton(btnName) {
         const btnSelector = this.btnSelectorFromName(btnName.toLowerCase())
         await this.page.waitForSelector(btnSelector)
-        await this.page.click(btnSelector)        
+        await this.page.click(btnSelector)     
     }
 
     async fillFormField(field, content) {
