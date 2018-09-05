@@ -5,34 +5,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
   <title>Address book</title>
+  <style>
+    body {
+      background-color: #FFBBCA;
+    }
+    h1 {
+      margin: 20px 4px 10px 14px;      
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Contacts</h1>
-
-  <button class="add-contact">Add Contact</button>
-
-
-  <form action="#" class ="new-contact-form">
-    <label for="name">Name</label>
-    <input id="contact-name" name="name" type="text">
-    <label for="email">Email</label>
-    <input id="contact-email" name="email" type="email">
-    <label for="phone">Phone</label>
-    <input id="contact-phone" name="phone" type="text">
-    <label for="company">Company</label>
-    <input id="contact-company" name="company" type="text">
-    <label for="notes">Notes</label>
-    <textarea id="contact-notes" name="notes" type="text"></textarea>
-    <label for="twitter">Twitter</label>
-    <input id="contact-twitter" name="twitter" type="text">
-
-    <input class="save-contact" type="submit" value="Save contact">
-  </form>
-  <div class="contact-list"></div>
-
+  <div class="container mx-auto font-mono text-pink-darker">
+    <h1 class="text-4xl">Contacts</h1>
+    <button class="add-contact bg-pink-dark hover:bg-pink-darker text-white font-bold py-2 px-4 rounded m-4" onClick="showForm()">Add Contact</button>
+    <div id="form" hidden>
+    <form action="#" class ="new-contact-form bg-pink-lightest shadow-md rounded px-6 pt-6 pb-8 mb-4 mx-4 overflow-hidden">
+      <label class="block text-pink-darker text-md font-bold mb-2" for="name">Name</label>
+      <input class="shadow appearance-none border rounded sm:w-full lg:w-1/4 py-2 px-3 text-pink-darker leading-tight focus:outline-none focus:shadow-outline" id="contact-name" name="name" type="text">
+      <label class="block text-pink-darker text-md font-bold my-2" for="email">Email</label>
+      <input class="shadow appearance-none border rounded sm:w-full lg:w-1/4 py-2 px-3 text-pink-darker leading-tight focus:outline-none focus:shadow-outline" id="contact-email" name="email" type="email">
+      <label class="block text-pink-darker text-md font-bold my-2" for="phone">Phone</label>
+      <input class="shadow appearance-none border rounded sm:w-full lg:w-1/4 py-2 px-3 text-pink-darker leading-tight focus:outline-none focus:shadow-outline" id="contact-phone" name="phone" type="text">
+      <label class="block text-pink-darker text-md font-bold my-2" for="company">Company</label>
+      <input class="shadow appearance-none border rounded sm:w-full lg:w-1/4 py-2 px-3 text-pink-darker leading-tight focus:outline-none focus:shadow-outline" id="contact-company" name="company" type="text">
+      <label class="block text-pink-darker text-md font-bold my-2" for="notes">Notes</label>
+      <textarea class="shadow appearance-none border rounded sm:w-full lg:w-1/4 py-2 px-3 text-pink-darker leading-tight focus:outline-none focus:shadow-outline" id="contact-notes" name="notes" type="text"></textarea>
+      <label class="block text-pink-darker text-md font-bold my-2" for="twitter">Twitter</label>
+      <input class="shadow appearance-none border rounded sm:w-full lg:w-1/4 py-2 px-3 text-pink-darker leading-tight focus:outline-none focus:shadow-outline" id="contact-twitter" name="twitter" type="text">
+      <input class="save-contact bg-pink-dark hover:bg-pink-darker text-white font-bold py-2 px-4 rounded m-3" type="submit" value="Save contact">
+    </form>
+    </div>
+    <div class="contact-list m-4"></div>
+  </div>  
   <script src="./dist/bundle.js"></script>
+  <script>
+    function showForm() {
+      document.getElementById('form').hidden = false;    
+    } 
+  </script>
 </body>
 
 </html>

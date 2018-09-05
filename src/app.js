@@ -6,28 +6,25 @@ const renderContacts = () => {
     let div = document.querySelector('.contact-list');
     div.innderHTML = ''
     if (contacts) {        
-        const ul = document.createElement('ul');
-        
+        const sect = document.createElement('section');
+        sect.classList.add('flex');
+        sect.classList.add('flex-col');
+        sect.classList.add('justify-start');      
         contacts.forEach(contact => {
-            let li = document.createElement('li')
-            li.innerHTML = `
-                <div class="card">
-                    <div class="image">
-                        <img src="https://ca-address-book.herokuapp.com/images/pine.jpg" />
-                    </div>
-                    <div class="content">
-                        <h1>${ contact.name }</h1>
-                        <h2>${ contact.company }</h2>
+            let sectChild = document.createElement('div')            
+            sectChild.innerHTML = `
+                <div class="max-w-sm rounded shadow-lg bg-pink-lightest my-4 px-6 py-4">                    
+                        <h2>${ contact.name }</h2>
+                        <h3>${ contact.company }</h3>
                         <p>${ contact.notes }</p>
-                        ${ contact.email } |
+                        ${ contact.email } | ${ contact.phone } | 
                         <a href="https://www.twitter.com/${ contact.twitter}">@${contact.twitter}</a>
-                    </div>
                 </div>
-            `
-            ul.appendChild(li)
+            `            
+            sect.appendChild(sectChild)
         })
         
-        div.appendChild(ul)
+        div.appendChild(sect)
     } else {
         div.innerHTML = `<p>You have no contacts in your address book</p>`
     }
