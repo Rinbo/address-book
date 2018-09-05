@@ -44,8 +44,8 @@ class AddressBookWorld {
 
     async pageDoesNotHaveTextContent(unexpectedContent) {
         const pageContent = await this.page.content()
-        let actualContent = pageContent.match(unexpectedContent)[0]
-        expect(actualContent).to.be.eq(unexpectedContent)
+        let actualContent = pageContent.match(unexpectedContent)
+        expect(actualContent).to.be.eq(null)
     }
 
     btnSelectorFromName(btnName) {

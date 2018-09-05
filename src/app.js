@@ -2,9 +2,8 @@ const renderContacts = () => {
     const storage = window.localStorage;
     const contacts = JSON.parse(storage.getItem('contacts'))
     let div = document.querySelector('.contact-list');
-    
-    if (contacts) {
-        div.innderHTML = ''
+    div.innderHTML = ""
+    if (contacts) {        
         const ul = document.createElement('ul');
         contacts.forEach(contact => {
             let li = document.createElement('li')
@@ -27,16 +26,18 @@ const renderContacts = () => {
         
         div.appendChild(ul)
     } else {
-        div.innerHTML = `<p>You have no contacts in your address book dumbass!!</p>`
+        div.innerHTML = `<p>You have no contacts in your address book</p>`
     }
     
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {    
     renderContacts()
     const addContactForm = document.querySelector('.new-contact-form')
     addContactForm.addEventListener('submit', event => {
-        event.preventDefault()
+        let clearMessage = document.querySelector('.contact-list');
+        clearMessage.innerHTML = ""
+        event.preventDefault()        
         const storage = window.localStorage;    
         const{
             name,
