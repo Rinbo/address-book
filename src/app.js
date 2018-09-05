@@ -1,10 +1,13 @@
+const storage = window.localStorage;
+
 const renderContacts = () => {
-    const storage = window.localStorage;
     const contacts = JSON.parse(storage.getItem('contacts'))
+    
     let div = document.querySelector('.contact-list');
-    div.innderHTML = ""
+    div.innderHTML = ''
     if (contacts) {        
         const ul = document.createElement('ul');
+        
         contacts.forEach(contact => {
             let li = document.createElement('li')
             li.innerHTML = `
@@ -28,7 +31,6 @@ const renderContacts = () => {
     } else {
         div.innerHTML = `<p>You have no contacts in your address book</p>`
     }
-    
 }
 
 document.addEventListener('DOMContentLoaded', () => {    
@@ -58,9 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
             twitter: twitter.value,
         }
         console.log(`Saving the following contact: ${JSON.stringify(contact)}`);
+        
         let contacts = JSON.parse(storage.getItem('contacts')) || []
         contacts.push(contact)
         storage.setItem('contacts', JSON.stringify(contacts))
         renderContacts()
+        addContactForr.reset()
     })
 })
