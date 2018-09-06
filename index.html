@@ -19,8 +19,11 @@
 
 <body>
   <div class="container mx-auto font-mono text-pink-darker">
-    <h1 class="text-4xl">Contacts</h1>
-    <button class="add-contact bg-pink-dark hover:bg-pink-darker text-white font-bold py-2 px-4 rounded m-4" onClick="showForm()">Add Contact</button>
+    <svg class="inline-block align-middle fill-current text-pink w-10 h-10 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+      <path d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z"/>
+    </svg>
+    <h1 class="text-4xl inline-block align-middle">Contacts</h1>
+    <button class="add-contact block bg-pink-dark hover:bg-pink-darker text-white font-bold py-2 px-4 rounded m-4" onClick="showForm()">Add Contact</button>
     <div id="form" hidden>
     <form action="#" class ="new-contact-form bg-pink-lightest shadow-md rounded px-6 pt-6 pb-8 mb-4 mx-4 overflow-hidden">
       <label class="block text-pink-darker text-md font-bold mb-2" for="name">Name</label>
