@@ -1,5 +1,10 @@
 const storage = window.localStorage;
 
+function toggleForm() {
+    document.getElementById('form').classList.toggle('hidden');  
+  }
+
+
 const renderContacts = () => {
     const contacts = JSON.parse(storage.getItem('contacts'))
     
@@ -31,8 +36,9 @@ const renderContacts = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {    
-    renderContacts()
-    const addContactForm = document.querySelector('.new-contact-form')
+    renderContacts();
+    document.getElementById('formButton').addEventListener('click', toggleForm);  
+    const addContactForm = document.querySelector('.new-contact-form');    
     addContactForm.addEventListener('submit', event => {
         let clearMessage = document.querySelector('.contact-list');
         clearMessage.innerHTML = ""
@@ -63,5 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
         storage.setItem('contacts', JSON.stringify(contacts))
         renderContacts()
         addContactForm.reset()
+        document.getElementById('form').classList.add('hidden')
     })
 })
